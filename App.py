@@ -31,11 +31,10 @@ def main():
     """
     st.markdown(html_temp, unsafe_allow_html = True)
     
-    Have_you_ever_had_suicidal_thoughts_ = st.text_input("Have you ever had suicidal thoughts (Yes or No)")
-    Have_you_ever_had_suicidal_thoughts_.lower()
-    if Have_you_ever_had_suicidal_thoughts_ == 'yes':
+    Have_you_ever_had_suicidal_thoughts_ = st.selectbox("Have you ever had suicidal thoughts?", ['Yes', 'No'])
+    if Have_you_ever_had_suicidal_thoughts_ == 'Yes':
         Have_you_ever_had_suicidal_thoughts_ = 1
-    elif Have_you_ever_had_suicidal_thoughts_ == 'no':
+    elif Have_you_ever_had_suicidal_thoughts_ == 'No':
         Have_you_ever_had_suicidal_thoughts_ = 0
     Work_Study_Hours = (st.number_input("Work or Study Hours"))
     Financial_Stress = (st.number_input("Financial Stress(1-5)"))
