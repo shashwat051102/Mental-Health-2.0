@@ -26,7 +26,7 @@ def main():
     html_temp = """
     <div padding:8px"> 
     <h1 style ="color:white;text-align:center;">Mental Health Prediction App</h1> 
-    <h4 style ="color:white;text-align:center;"> Know you have depression or not</h4>
+    <h4 style ="color:white;text-align:center;"> Know if you have depression or not</h4>
     </div> 
     """
     st.markdown(html_temp, unsafe_allow_html = True)
