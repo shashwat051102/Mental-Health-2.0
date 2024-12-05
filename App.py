@@ -4,6 +4,8 @@ import pickle
 import streamlit as st
 
 from PIL import Image
+import time
+import threading
 
 
 pickle_in = open('final_model.pkl', 'rb')
@@ -23,13 +25,34 @@ def prediction(Have_you_ever_had_suicidal_thoughts_,Work_Study_Hours,Financial_S
 def main():
     # st.title("Mental Health Prediction")
     
+    
+    
     html_temp = """
     <div padding:8px"> 
-    <h1 style ="color:white;text-align:center;">Mental Health Prediction App</h1> 
+    <h1 style ="color:white;text-align:center;">Mental Health Prediction App 🧠</h1> 
     <h4 style ="color:white;text-align:center;"> Know if you have depression or not</h4>
     </div> 
     """
     st.markdown(html_temp, unsafe_allow_html = True)
+    
+    facts = [
+        "1 in 8 people are suffering from a mental condition.",
+        "4th leading cause of death among adolescents.",
+        "75 percent of people in low- and middle-income countries with mental health disorders receive no treatment.",
+        "Mental health disorders cost the global economy nearly $1 trillion annually in productivity losses.",
+        "1 in 8 people are suffering from a mental condition.",
+        "4th leading cause of death among adolescents."
+    ]
+
+    fact_placeholder = st.empty()
+
+    stop_facts = st.checkbox("Stop showing facts")
+    
+    for fact in facts:
+        if stop_facts:
+            break
+        fact_placeholder.markdown(f"<p style='color:#F29F58;text-align:center;'>{fact}</p>", unsafe_allow_html=True)
+        time.sleep(10)
     
     Have_you_ever_had_suicidal_thoughts_ = st.selectbox("Have you ever had suicidal thoughts?", ['Yes', 'No'])
     if Have_you_ever_had_suicidal_thoughts_ == 'Yes':
