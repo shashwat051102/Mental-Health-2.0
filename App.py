@@ -45,7 +45,7 @@ def main():
     
     if st.button("Predict"):
         result = prediction(Have_you_ever_had_suicidal_thoughts_,Work_Study_Hours,Financial_Stress,Pressure)
-        if Work_Study_Hours > 10 and Financial_Stress >= 4 and Pressure >= 3:
+        if Work_Study_Hours > 10 and (Financial_Stress >= 4 or Pressure >= 3):
             result = 1
         if result == 0:
             st.success('You have less chance of suffering from depression')
